@@ -1,6 +1,6 @@
-import { IAnoMes } from "../AnoMes.interface";
-import { IProdutoParametros } from "../ProdutoParametros.interface";
-import { IProdutoRealizado } from "../ProdutoRealizado.interface";
+import { IAnoMes } from '../IAnoMes.interface'
+import { IProdutoParametros } from '../IProdutoParametros.interface'
+import { IProdutoRealizado } from '../IProdutoRealizado.interface'
 
 export interface IProdutoSimulador {
     id: number

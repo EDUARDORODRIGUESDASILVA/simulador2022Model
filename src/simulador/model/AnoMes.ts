@@ -1,4 +1,4 @@
-import { IAnoMes } from '../interfaces/AnoMes.interface'
+import { IAnoMes } from '../interfaces/IAnoMes.interface'
 
 export class AnoMes implements IAnoMes {
   public id: number

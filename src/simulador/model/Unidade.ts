@@ -1,9 +1,18 @@
-import { IUnidade } from '../interfaces/Unidade.interface';
+/* eslint-disable no-useless-constructor */
+import { IUnidade } from '../interfaces/IUnidade.interface'
 
 export class Unidade implements IUnidade {
-    readonly id: number;
-    readonly nome: number;
-    readonly parentId: number;
-    readonly tipo: string;
-    readonly grupo: number;
+  constructor (
+    public readonly unidadeId: number,
+    public readonly nome: string,
+    public readonly parentId: number,
+    public readonly tipo: string,
+    public readonly grupo: number) {}
+
+  formatedNome () {
+    const codUnidade = this.unidadeId
+    const nome = this.nome
+    const tipo = this.tipo
+    return `${codUnidade} - ${tipo} ${nome}`
+  }
 }

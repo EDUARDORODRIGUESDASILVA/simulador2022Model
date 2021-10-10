@@ -1,2 +1,6 @@
-const message: string = 'Hello, World!'
-console.log(message)
+import { SimuladorMainApp } from './app/main.app'
+
+(async () => {
+  const simuladorApp = new SimuladorMainApp()
+  await simuladorApp.run()
+})()

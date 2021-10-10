@@ -1,6 +1,6 @@
-import { IAnoMes } from '../interfaces/AnoMes.interface'
-import { IProdutoRealizado } from '../interfaces/ProdutoRealizado.interface'
-import { IProdutoSimulador } from '../interfaces/simulador/ProdutoSimulador.interface'
+import { IAnoMes } from '../interfaces/IAnoMes.interface'
+import { IProdutoRealizado } from '../interfaces/IProdutoRealizado.interface'
+import { IProdutoSimulador } from '../interfaces/simulador/IProdutoSimulador.interface'
 
 export class ProdutoSimulador implements IProdutoSimulador {
         readonly id: number

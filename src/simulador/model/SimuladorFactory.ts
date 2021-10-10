@@ -1,16 +1,16 @@
-import { ISimuladorFactory } from '../interfaces/factories/SimuladorFactory.interface'
+import { ISimuladorFactory } from '../interfaces/factories/ISimuladorFactory.interface'
 import { Simulador } from './Simulador'
-import { IProdutoSimulador } from '../interfaces/simulador/ProdutoSimulador.interface'
-import { IUnidadeFactory } from '../interfaces/factories/UnidadeFactory.interface'
-import { IAnoMesFactory } from '../interfaces/factories/AnoMesFactory.interface'
-import { IProdutoParametrosFactory } from '../interfaces/factories/ProdutoParametrosFactory.interface'
-import { ISimuladorParams } from '../interfaces/simulador/SimuladorParams.interface'
-import { IUnidade } from '../interfaces/Unidade.interface'
-import { IAnoMes } from '../interfaces/AnoMes.interface'
+import { IProdutoSimulador } from '../interfaces/simulador/IProdutoSimulador.interface'
+import { IUnidadeFactory } from '../interfaces/factories/IUnidadeFactory.interface'
+import { IAnoMesFactory } from '../interfaces/factories/IAnoMesFactory.interface'
+import { IProdutoParametrosFactory } from '../interfaces/factories/IProdutoParametrosFactory.interface'
+import { ISimuladorParams } from '../interfaces/simulador/ISimuladorParams.interface'
+import { IUnidade } from '../interfaces/IUnidade.interface'
+import { IAnoMes } from '../interfaces/IAnoMes.interface'
 import { ProdutoSimulador } from './ProdutoSimulador'
-import { IProdutoRealizadoFactory } from '../interfaces/factories/ProdutoRealizadoFactory'
-import { ProdutoData } from '../interfaces/adapters/ProdutoRealizadoRepository.interface'
-import { IProdutoRealizado } from '../interfaces/ProdutoRealizado.interface'
+import { IProdutoRealizadoFactory } from '../interfaces/factories/IProdutoRealizadoFactory'
+import { IProdutoRealizado } from '../interfaces/IProdutoRealizado.interface'
+import { ProdutoDX } from '../interfaces/adapters/EProdutoDX.enum'
 
 export class SimuladorFactory implements ISimuladorFactory {
     private unidadeFactory: IUnidadeFactory
@@ -43,22 +43,22 @@ export class SimuladorFactory implements ISimuladorFactory {
       const real = this.produtoRealizadoFactory.getProdutoRealizado(
         anoMes,
         unidadeId,
-        ProdutoData.D0
+        ProdutoDX.D0
       )
       const d1 = this.produtoRealizadoFactory.getProdutoRealizado(
         anoMes,
         unidadeId,
-        ProdutoData.D1
+        ProdutoDX.D1
       )
       const d2 = this.produtoRealizadoFactory.getProdutoRealizado(
         anoMes,
         unidadeId,
-        ProdutoData.D2
+        ProdutoDX.D2
       )
       const d3 = this.produtoRealizadoFactory.getProdutoRealizado(
         anoMes,
         unidadeId,
-        ProdutoData.D3
+        ProdutoDX.D3
       )
 
       const produtos: IProdutoSimulador[] = []
@@ -84,7 +84,7 @@ export class SimuladorFactory implements ISimuladorFactory {
       id: number,
       produtoRealizadoArray: IProdutoRealizado[]
     ): IProdutoRealizado {
-      let p = produtoRealizadoArray.find((p) => p.id == id)
+      let p = produtoRealizadoArray.find((p) => p.id === id)
       if (!p) {
         p = {
           id,
